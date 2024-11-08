@@ -244,30 +244,64 @@ export default function Payments() {
 
       {/* Modal for add payment */}
       {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-1/2">
-            <h3 className="text-lg font-medium text-[#005C3B]">Add Payment</h3>
-            <div className="mt-4">
-              <input
-                type="text"
-                className="w-full p-2 border border-gray-300 rounded-lg"
-                placeholder="Enter payment details"
-              />
-            </div>
-            <div className="mt-4 flex justify-end gap-4">
-              <button
-                className="px-4 py-2 bg-[#005C3B] text-white rounded-lg"
-                onClick={handleModalToggle}
-              >
-                Cancel
-              </button>
-              <button className="px-4 py-2 bg-[#00824F] text-white rounded-lg">
-                Save Payment
-              </button>
-            </div>
-          </div>
+  <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+    <div className="bg-[#1e1e1e] p-8 rounded-lg shadow-lg w-[500px] md:w-[600px] lg:w-[700px] relative">
+      <h3 className="text-lg font-medium text-[#ececec] mb-4">Add Payment</h3>
+      
+      {/* Input box for Amount */}
+      <div className="mb-6">
+        <input
+          type="number"
+          className="w-full h-[60px] bg-transparent text-[#ececec] text-3xl font-bold font-['Poppins'] text-center border border-[#ececec] rounded-[10px] focus:outline-none appearance-none overflow-hidden box-border"
+          placeholder="₱ 00.00"
+        />
+      </div>
+      
+      {/* Categories and Add Note in One Row */}
+      <div className="flex flex-col sm:flex-row sm:space-x-4 mb-6">
+      {/* Categories Dropdown */}
+      <div className="w-full sm:w-[250px] mb-4 sm:mb-0">
+        <div className="w-full h-[50px] bg-gradient-to-r from-[#018053] to-black rounded-[10px] shadow border border-[#ececec]">
+          <select className="w-full h-full bg-transparent text-[#ececec] text-[18px] font-medium font-['Poppins'] border-none rounded-[10px] pl-3 focus:outline-none">
+            <option value="Transportation">Transportation</option>
+            <option value="School">School</option>
+            <option value="Food">Food</option>
+            <option value="Online orders">Online orders</option>
+          </select>
         </div>
-      )}
+      </div>
+
+      {/* Add Note Input Box */}
+      <div className="flex-1">
+        <div className="w-full h-[50px] bg-transparent text-[#ececec]/70 text-[18px] font-medium font-['Poppins'] border border-[#ececec] rounded-[10px] p-3 resize-none focus:outline-none">
+          <textarea
+            className="w-full h-full bg-transparent text-[#ececec]/70 text-[18px] font-medium font-['Poppins'] resize-none focus:outline-none overflow-hidden"
+            placeholder="Add note..."
+          />
+        </div>
+      </div>
+    </div>
+
+      {/* Add to Expense Button */}
+      <div className="mt-6">
+        <button className="w-full h-[50px] bg-gradient-to-r from-[#018053] to-black text-[#ececec] text-[18px] font-medium font-['Poppins'] rounded-[10px] shadow border border-[#ececec]">
+          Add to expense
+        </button>
+      </div>
+
+      {/* Close Button */}
+      <div className="absolute top-4 right-4">
+        <button
+          className="px-4 py-2 bg-[#005C3B] text-white rounded-lg"
+          onClick={handleModalToggle}
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
     </div>
   );
 }
