@@ -162,6 +162,7 @@ const Calendar = () => {
 };
 
 // Payments Component
+// Payments Component
 export default function Payments() {
   const { status } = useSession();
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
@@ -169,6 +170,14 @@ export default function Payments() {
   const handleModalToggle = () => {
     setIsModalOpen((prev) => !prev);
   };
+
+  const currentYear = new Date().getFullYear();
+  const years = Array.from({ length: 21 }, (_, i) => currentYear - 10 + i);
+
+  const months = [
+    "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", 
+    "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"
+  ];
 
   if (status === "loading") {
     return <div>Loading...</div>;
@@ -244,64 +253,106 @@ export default function Payments() {
 
       {/* Modal for add payment */}
       {isModalOpen && (
-  <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-    <div className="bg-white p-8 rounded-lg shadow-lg w-[500px] md:w-[600px] lg:w-[700px] relative">
-      <h3 className="text-lg font-medium text-[#005C3B] mb-4">Add Payment</h3>
-      
-      {/* Input box for Amount */}
-      <div className="mb-6">
-        <input
-          type="number"
-          className="w-full h-[60px] bg-transparent text-[#005C3B] text-3xl font-bold font-['Poppins'] text-center border border-[#005C3B] rounded-[10px] focus:outline-none appearance-none overflow-hidden box-border"
-          placeholder="₱ 00.00"
-        />
-      </div>
-      
-      {/* Categories and Add Note in One Row */}
-      <div className="flex flex-col sm:flex-row sm:space-x-4 mb-6">
-      {/* Categories Dropdown */}
-      <div className="w-full sm:w-[250px] mb-4 sm:mb-0">
-        <div className="w-full h-[50px] bg-gradient-to-r from-[#018053] to-black rounded-[10px] shadow border border-[#ececec]">
-          <select className="w-full h-full bg-transparent text-[#ececec] text-[18px] font-medium font-['Poppins'] border-none rounded-[10px] pl-3 focus:outline-none">
-            <option value="Transportation">Transportation</option>
-            <option value="School">School</option>
-            <option value="Food">Food</option>
-            <option value="Online orders">Online orders</option>
-          </select>
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+          <div className="bg-white p-8 rounded-lg shadow-lg w-[500px] md:w-[600px] lg:w-[700px] relative">
+            <h3 className="text-lg font-medium text-[#005C3B] mb-4">Add Payment</h3>
+
+            {/* Date Selection Section */}
+            <div className="flex justify-center gap-4 mb-6">
+              {/* Day Dropdown */}
+              <div className="w-[70px]">
+                <select
+                  className="w-full h-[50px] bg-transparent text-[#005C3B] text-[18px] font-medium font-['Poppins'] border border-[#005C3B] rounded-[10px] focus:outline-none"
+                >
+                  {Array.from({ length: 31 }, (_, i) => (
+                    <option key={i + 1} value={i + 1}>
+                      {i + 1}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Month Dropdown */}
+              <div className="w-[150px]">
+                <select
+                  className="w-full h-[50px] bg-transparent text-[#005C3B] text-[18px] font-medium font-['Poppins'] border border-[#005C3B] rounded-[10px] focus:outline-none"
+                >
+                  {months.map((m) => (
+                    <option key={m} value={m}>
+                      {m}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Year Dropdown */}
+              <div className="w-[100px]">
+                <select
+                  className="w-full h-[50px] bg-transparent text-[#005C3B] text-[18px] font-medium font-['Poppins'] border border-[#005C3B] rounded-[10px] focus:outline-none"
+                >
+                  {years.map((y) => (
+                    <option key={y} value={y}>
+                      {y}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            {/* Input box for Amount */}
+            <div className="mb-6">
+              <input
+                type="number"
+                className="w-full h-[60px] bg-transparent text-[#005C3B] text-3xl font-bold font-['Poppins'] text-center border border-[#005C3B] rounded-[10px] focus:outline-none appearance-none overflow-hidden box-border"
+                placeholder="₱ 00.00"
+              />
+            </div>
+
+            {/* Categories and Add Note in One Row */}
+            <div className="flex flex-col sm:flex-row sm:space-x-4 mb-6">
+              {/* Categories Dropdown */}
+              <div className="w-full sm:w-[250px] mb-4 sm:mb-0">
+                <div className="w-full h-[50px] bg-gradient-to-r from-[#018053] to-black rounded-[10px] shadow border border-[#ececec]">
+                  <select className="w-full h-full bg-transparent text-[#ececec] text-[18px] font-medium font-['Poppins'] border-none rounded-[10px] pl-3 focus:outline-none">
+                    <option value="Transportation">Transportation</option>
+                    <option value="School">School</option>
+                    <option value="Food">Food</option>
+                    <option value="Online orders">Online orders</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Add Note Input Box */}
+              <div className="flex-1">
+                <div className="w-full h-[50px] bg-transparent text-[#ececec]/70 text-[18px] font-medium font-['Poppins'] border border-[#ececec] rounded-[10px] p-3 resize-none focus:outline-none">
+                  <textarea
+                    className="w-full h-full bg-transparent text-[#005C3B]/70 text-[18px] font-medium font-['Poppins'] resize-none focus:outline-none overflow-hidden"
+                    placeholder="Add note..."
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Add to Expense Button */}
+            <div className="mt-6">
+              <button className="w-full h-[50px] bg-gradient-to-r from-[#018053] to-black text-[#ececec] text-[18px] font-medium font-['Poppins'] rounded-[10px] shadow border border-[#ececec]">
+                Add to expense
+              </button>
+            </div>
+
+            {/* Close Button */}
+            <div className="absolute top-4 right-4">
+              <button
+                className="px-4 py-2 bg-[#005C3B] text-white rounded-lg"
+                onClick={handleModalToggle}
+              >
+                Close
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-
-      {/* Add Note Input Box */}
-      <div className="flex-1">
-        <div className="w-full h-[50px] bg-transparent text-[#ececec]/70 text-[18px] font-medium font-['Poppins'] border border-[#ececec] rounded-[10px] p-3 resize-none focus:outline-none">
-          <textarea
-            className="w-full h-full bg-transparent text-[#005C3B]/70 text-[18px] font-medium font-['Poppins'] resize-none focus:outline-none overflow-hidden"
-            placeholder="Add note..."
-          />
-        </div>
-      </div>
-    </div>
-
-      {/* Add to Expense Button */}
-      <div className="mt-6">
-        <button className="w-full h-[50px] bg-gradient-to-r from-[#018053] to-black text-[#ececec] text-[18px] font-medium font-['Poppins'] rounded-[10px] shadow border border-[#ececec]">
-          Add to expense
-        </button>
-      </div>
-
-      {/* Close Button */}
-      <div className="absolute top-4 right-4">
-        <button
-          className="px-4 py-2 bg-[#005C3B] text-white rounded-lg"
-          onClick={handleModalToggle}
-        >
-          Close
-        </button>
-      </div>
-    </div>
-  </div>
-)}
-
+      )}
     </div>
   );
 }
+
