@@ -245,14 +245,14 @@ export default function Payments() {
       {/* Modal for add payment */}
       {isModalOpen && (
   <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-    <div className="bg-[#1e1e1e] p-8 rounded-lg shadow-lg w-[500px] md:w-[600px] lg:w-[700px] relative">
-      <h3 className="text-lg font-medium text-[#ececec] mb-4">Add Payment</h3>
+    <div className="bg-white p-8 rounded-lg shadow-lg w-[500px] md:w-[600px] lg:w-[700px] relative">
+      <h3 className="text-lg font-medium text-[#005C3B] mb-4">Add Payment</h3>
       
       {/* Input box for Amount */}
       <div className="mb-6">
         <input
           type="number"
-          className="w-full h-[60px] bg-transparent text-[#ececec] text-3xl font-bold font-['Poppins'] text-center border border-[#ececec] rounded-[10px] focus:outline-none appearance-none overflow-hidden box-border"
+          className="w-full h-[60px] bg-transparent text-[#005C3B] text-3xl font-bold font-['Poppins'] text-center border border-[#005C3B] rounded-[10px] focus:outline-none appearance-none overflow-hidden box-border"
           placeholder="₱ 00.00"
         />
       </div>
@@ -273,9 +273,9 @@ export default function Payments() {
 
       {/* Add Note Input Box */}
       <div className="flex-1">
-        <div className="w-full h-[50px] bg-transparent text-[#ececec]/70 text-[18px] font-medium font-['Poppins'] border border-[#ececec] rounded-[10px] p-3 resize-none focus:outline-none">
+        <div className="w-full h-[50px] bg-transparent text-[#ececec]/70 text-[18px] font-medium font-['Poppins'] border border-[#005C3B] rounded-[10px] p-3 resize-none focus:outline-none">
           <textarea
-            className="w-full h-full bg-transparent text-[#ececec]/70 text-[18px] font-medium font-['Poppins'] resize-none focus:outline-none overflow-hidden"
+            className="w-full h-full bg-transparent text-[#005C3B]/70 text-[18px] font-medium font-['Poppins'] resize-none focus:outline-none overflow-hidden"
             placeholder="Add note..."
           />
         </div>
