@@ -3,10 +3,22 @@
 import LeftPanel from "@/components/left-panel";
 import ExpenseHistory  from "@/components/expenseHistory";
 import MonthExpenseHistory from "@/components/monthExpenseHistory";
+import React, { useState } from "react";
 import { useSession } from "next-auth/react";
+
+interface SelectChangeEvent {
+    target: {
+      value: string;
+    };
+  }
 
 export default function Expenses() {
   const { status } = useSession();
+  const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
+
+  const handleModalToggle = () => {
+    setIsModalOpen((prev) => !prev);
+  };
 
   if (status === "loading") {
     return <div>Loading...</div>;
@@ -36,7 +48,7 @@ export default function Expenses() {
               <div className="h-screen py-3 pr-2 flex flex-col">
                   <button className="relative w-full bg-gradient-to-tl from-zinc-900 to-green-600 rounded-2xl p-5 text-white text-xl font-medium shadow-l border border-white flex items-center shadow-lg hover:text-green-400 transition duration-300">
                       <span className="flex-grow font-bold text-left">Add Expenses</span>
-                      <div className="items-center hover:opacity-75 transition duration-300">
+                      <div className="items-center hover:opacity-75 transition duration-300" onClick={handleModalToggle}>
                           <Icon1 />
                       </div>
                   </button>
@@ -99,6 +111,67 @@ export default function Expenses() {
                   </div>
               </div>
           </div>
+
+        {/* Modal for add payment */}
+      {isModalOpen && (
+  <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+    <div className="bg-white p-8 rounded-lg shadow-lg w-[500px] md:w-[600px] lg:w-[700px] relative">
+      <h3 className="text-lg font-medium text-[#005C3B] mb-4">Add Expenses</h3>
+      
+      {/* Input box for Amount */}
+      <div className="mb-6">
+        <input
+          type="number"
+          className="w-full h-[60px] bg-transparent text-[#005C3B] text-3xl font-bold font-['Poppins'] text-center border border-[#005C3B] rounded-[10px] focus:outline-none appearance-none overflow-hidden box-border"
+          placeholder="₱ 00.00"
+        />
+      </div>
+      
+      {/* Categories and Add Note in One Row */}
+      <div className="flex flex-col sm:flex-row sm:space-x-4 mb-6">
+      {/* Categories Dropdown */}
+      <div className="w-full sm:w-[250px] mb-4 sm:mb-0">
+        <div className="w-full h-[50px] bg-gradient-to-r from-[#018053] to-black rounded-[10px] shadow border border-[#ececec]">
+          <select className="w-full h-full bg-transparent text-[#ececec] text-[18px] font-medium font-['Poppins'] border-none rounded-[10px] pl-3 focus:outline-none">
+            <option value="Transportation">Transportation</option>
+            <option value="School">School</option>
+            <option value="Food">Food</option>
+            <option value="Online orders">Online orders</option>
+          </select>
+        </div>
+      </div>
+
+      {/* Add Note Input Box */}
+      <div className="flex-1">
+        <div className="w-full h-[50px] bg-transparent text-[#ececec]/70 text-[18px] font-medium font-['Poppins'] border border-[#005C3B] rounded-[10px] p-3 resize-none focus:outline-none">
+          <textarea
+            className="w-full h-full bg-transparent text-[#005C3B]/70 text-[18px] font-medium font-['Poppins'] resize-none focus:outline-none overflow-hidden"
+            placeholder="Add note..."
+          />
+        </div>
+      </div>
+    </div>
+
+      {/* Add to Expense Button */}
+      <div className="mt-6">
+        <button className="w-full h-[50px] bg-gradient-to-r from-[#018053] to-black text-[#ececec] text-[18px] font-medium font-['Poppins'] rounded-[10px] shadow border border-[#ececec]">
+          Add to expense
+        </button>
+      </div>
+
+      {/* Close Button */}
+      <div className="absolute top-4 right-4">
+        <button
+          className="px-4 py-2 bg-[#005C3B] text-white rounded-lg"
+          onClick={handleModalToggle}
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
       </div>
   );
 }
