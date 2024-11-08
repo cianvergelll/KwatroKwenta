@@ -273,7 +273,7 @@ export default function Payments() {
 
       {/* Add Note Input Box */}
       <div className="flex-1">
-        <div className="w-full h-[50px] bg-transparent text-[#ececec]/70 text-[18px] font-medium font-['Poppins'] border border-[#005C3B] rounded-[10px] p-3 resize-none focus:outline-none">
+        <div className="w-full h-[50px] bg-transparent text-[#ececec]/70 text-[18px] font-medium font-['Poppins'] border border-[#ececec] rounded-[10px] p-3 resize-none focus:outline-none">
           <textarea
             className="w-full h-full bg-transparent text-[#005C3B]/70 text-[18px] font-medium font-['Poppins'] resize-none focus:outline-none overflow-hidden"
             placeholder="Add note..."
