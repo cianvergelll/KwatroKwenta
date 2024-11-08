@@ -219,6 +219,7 @@ export default function Payments() {
               </div>
             </div>
 
+            {/*Left Section Div */}
             <div className="flex-1 overflow-y-auto space-y-4">
               <PaymentInfo />
               <PaymentInfo />
@@ -336,7 +337,7 @@ export default function Payments() {
             {/* Add to Expense Button */}
             <div className="mt-6">
               <button className="w-full h-[50px] bg-gradient-to-r from-[#018053] to-black text-[#ececec] text-[18px] font-medium font-['Poppins'] rounded-[10px] shadow border border-[#ececec]">
-                Add to expense
+                Add to payment
               </button>
             </div>
 
