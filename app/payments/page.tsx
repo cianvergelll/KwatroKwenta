@@ -65,14 +65,14 @@ export default function Payments() {
 
             {/* Left Section Div */}
             <div className="flex-1 overflow-y-auto space-y-4">
-              <PaymentInfo />
+              <PaymentInfo />font
             </div>
           </div>
 
           {/* Payment History */}
           <div className="flex-1 bg-white rounded-xl shadow-sm p-6 overflow-hidden flex flex-col">
             <div className="mb-4">
-              <h2 className="text-xl font-bold text-[#005C3B] mb-2">
+              <h2 className="text-xl -bold text-[#005C3B] mb-2">
                 Payment History
               </h2>
               <p className="text-gray-600">Month of September</p>
