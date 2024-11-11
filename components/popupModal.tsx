@@ -60,12 +60,12 @@ const Icon1 = () => {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
       <div className="bg-gradient-to-r from-[#018053] to-black p-8 rounded-lg shadow-lg  relative h-2/2 w-1/3">
-        <h3 className="text-lg font-medium text-white mb-4">Add Payment</h3>
+        <h3 className="text-lg font-medium text-white mb-4">Payment Details</h3>
 
         <div className="flex justify-center gap-4 mb-6">
           <div className="w-[70px]">
             <select
-              className="w-full h-[50px] bg-transparent text-white text-[18px] font-medium font-['Poppins'] border border-white rounded-[10px] focus:outline-none"
+              className="w-full h-[50px] text-center bg-transparent text-white text-[18px] font-medium font-['Poppins'] border border-white rounded-[10px] focus:outline-none"
               value={day}
               onChange={(e) => setDay(e.target.value)}
             >
@@ -89,7 +89,7 @@ const Icon1 = () => {
 
           <div className="w-[150px]">
             <select
-              className="w-full h-[50px] bg-transparent text-white text-[18px] font-medium font-['Poppins'] border border-white rounded-[10px] focus:outline-none"
+              className="w-full h-[50px] bg-transparent text-center text-white text-[18px] font-medium font-['Poppins'] border border-white rounded-[10px] focus:outline-none"
               value={month}
               onChange={(e) => setMonth(e.target.value)}
             >
@@ -103,7 +103,7 @@ const Icon1 = () => {
 
           <div className="w-[100px]">
             <select
-              className="w-full h-[50px] bg-transparent text-white text-[18px] font-medium font-['Poppins'] border border-white rounded-[10px] focus:outline-none"
+              className="w-full h-[50px] bg-transparent text-center text-white text-[18px] font-medium font-['Poppins'] border border-white rounded-[10px] focus:outline-none"
               value ={year}
               onChange={(e) => setYear(e.target.value)}
             >
@@ -122,7 +122,7 @@ const Icon1 = () => {
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             placeholder="₱ 0.00"
-            className="w-full h-[50px] bg-transparent text-white text-[18px] font-medium font-['Poppins'] border border-white rounded-[10px] focus:outline-none"
+            className="w-full h-[50px] text-center bg-transparent text-white text-[18px] font-bold font-['Poppins'] border border-white rounded-[10px] focus:outline-none"
           />
         </div>
 
@@ -132,13 +132,13 @@ const Icon1 = () => {
             value={note}
             onChange={(e) => setNote(e.target.value)}
             placeholder="Note"
-            className="w-full h-[50px] bg-transparent text-white text-[18px] font-medium font-['Poppins'] border border-white rounded-[10px] focus:outline-none"
+            className="w-full h-[50px] text-center bg-transparent text-white text-[18px] font-medium font-['Poppins'] border border-white rounded-[10px] focus:outline-none"
           />
         </div>
 
         
           <button
-            className="px-4 py-2 bg-green-600 text-white rounded-lg"
+            className="px-4 py-2 bg-green-600 text-white rounded-lg ml-72"
             onClick={() => handleSavePayment(amount, note, `${day} ${month} ${year}`)}
           >
             Add Payment

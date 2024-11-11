@@ -65,7 +65,7 @@ export default function Payments() {
 
             {/* Left Section Div */}
             <div className="flex-1 overflow-y-auto space-y-4">
-              <PaymentInfo />font
+              <PaymentInfo />
             </div>
           </div>
 
