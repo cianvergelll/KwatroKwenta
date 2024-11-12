@@ -1,15 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { signOut } from  "next-auth/react";
+import { signOut, useSession } from  "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { server } from "typescript";
 
 
 
 export default function LeftPanel() {
 
     const router = useRouter();
+    const { data: session } = useSession();
 
     const handleLogout = async () => {
         console.log("Logout function called");
@@ -109,7 +111,7 @@ export default function LeftPanel() {
                         />
                         <div>
                             <p className="text-white text-xs lg:text-sm">Welcome back,</p>
-                            <p className="text-white text-lg lg:text-2xl font-semibold">Jhenesis</p>
+                            <p className="text-white text-lg lg:text-2xl font-semibold">{ session?.user?.name }</p>
                         </div>
                     </div>
     
