@@ -12,7 +12,7 @@ const AddIcon = () => (
   >
     <path 
       d="M25.4999 0.083252C39.537 0.083252 50.9166 11.4627 50.9166 25.4999C50.9166 39.537 39.537 50.9166 25.4999 50.9166C11.4627 50.9166 0.083252 39.537 0.083252 25.4999C0.083252 11.4627 11.4627 0.083252 25.4999 0.083252ZM25.4999 12.7916C24.5348 12.7916 23.7373 13.5087 23.611 14.4392L23.5937 14.6978V23.5937H14.6978C13.6451 23.5937 12.7916 24.4472 12.7916 25.4999C12.7916 26.465 13.5087 27.2626 14.4392 27.3889L14.6978 27.4062H23.5937V36.302C23.5937 37.3548 24.4472 38.2083 25.4999 38.2083C26.465 38.2083 27.2626 37.491 27.3889 36.5607L27.4062 36.302V27.4062H36.302C37.3548 27.4062 38.2083 26.5527 38.2083 25.4999C38.2083 24.5349 37.491 23.7373 36.5607 23.611L36.302 23.5937H27.4062V14.6978C27.4062 13.6451 26.5527 12.7916 25.4999 12.7916Z" 
-      fill="currentColor"
+      fill="white"
     />
   </svg>
 );
@@ -55,42 +55,43 @@ export default function SavingGoals () {
         </div>
         
 
+        {/* Saving Goals */}
+        <div className=" -mt-10 relative h-64 flex justify-center items-center">
+  {/* Container for circles */}
+  <div className="  left-12 relative w-[450px] h-64">
 
-       {/* Savings Circles */}
-          <div className="mt-12 relative h-64 flex justify-center items-center">
-        {/* Container for circles */}
-        <div className="relative w-[450px] h-64">
-    
-     {/* New Laptop Circle*/}
-    <div className="absolute -left-10 top-1/2 -translate-y-1/2 z-30 w-32 h-32 rounded-full bg-emerald-800 flex flex-col items-center justify-center text-white">
+    {/* New Laptop Circle */}
+    <div className="absolute -left-28 top-1/2 -translate-y-6 z-30 w-32 h-32 rounded-full bg-emerald-800 flex flex-col items-center justify-center text-white">
       <div className="text-xs">Total</div>
-      <div className="font-semibold">₱8,000.00</div>
+      <div className="font-semibold">₱6,000.00</div>
       <div className="text-xs text-emerald-300">₱15,000.00</div>
     </div>
-    
-    {/* ADV Circle*/}
-    <div className="absolute left-8 top-1/2 -translate-y-1/2 z-20 w-40 h-40 rounded-full bg-yellow-600 flex flex-col items-center justify-center text-white">
+
+    {/* ADV Circle */}
+    <div className="absolute top-1/2 translate-y-4 z-20 w-40 h-40 rounded-full bg-yellow-600 flex flex-col items-center justify-center text-white">
       <div className="text-xs">Total</div>
       <div className="font-semibold">₱95,000.00</div>
       <div className="text-xs text-yellow-200">₱150,000.00</div>
     </div>
-    
+
     {/* Computer Circle */}
-    <div className="absolute left-36 top-1/2 -translate-y-1/2 z-30 w-32 h-32 rounded-full bg-blue-700 flex flex-col items-center justify-center text-white">
+    <div className="absolute left-36 top-1/2 -translate-y-6 z-30 w-32 h-32 rounded-full bg-blue-700 flex flex-col items-center justify-center text-white">
       <div className="text-xs">Total</div>
       <div className="font-semibold">₱18,000.00</div>
       <div className="text-xs text-blue-200">₱46,000.00</div>
     </div>
 
     {/* New Phone Circle */}
-    <div className="absolute left-56 top-1/2 -translate-y-1/2 z-20 w-28 h-28 rounded-full bg-red-700 flex flex-col items-center justify-center text-white">
+    <div className="absolute left-64 top-1/2 translate-y-4 z-20 w-28 h-28 rounded-full bg-red-700 flex flex-col items-center justify-center text-white">
       <div className="text-xs">Total</div>
-      <div className="font-semibold">₱8,000.00</div>
+      <div className="font-semibold">₱5,000.00</div>
       <div className="text-xs text-red-200">₱11,000.00</div>
     </div>
   </div>
 </div>
 </div>
+
+{/* Right Panel */}
 <div className="w-96 bg-white p-8">
         <div className="mb-6">
           <h2 className="text-2xl font-semibold">Goal overview</h2>
